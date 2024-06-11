@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import express from "express"
 import cookieParser from "cookie-parser"
+import cors from "cors"
 
 /* ---------------------------------------- */
 import connectToDB from "./config/connectionDB.js";
@@ -9,8 +10,18 @@ import shortenLink from "./routes/shortenLinkRoutes.js"
 
 connectToDB()
 
+let corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    headers: ['Content-Type', 'Authorization'],
+    exposedHeaders: ['X-Powered-By'],
+    credentials: true,
+}
+
 const app = express()
 app.use(express.json())
+app.use(cors(corsOptions))
 app.use(cookieParser())
 const port = 5000
 
