@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const url = "mongodb://localhost:27017/shortUrl"
+const url = "mongodb+srv://admtariq11:6W7OzqIqBjEOqgrW@learn-mango-db.mvgfzpu.mongodb.net/shortUrl"
 
 const connectToDB = async () => {
     try {
