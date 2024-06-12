@@ -29,10 +29,16 @@ const port = 5000
 app.use('/api_auth', authRoutes)
 app.use('/api_shorten', shortenLink)
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
+const interval = 12 * 60 * 1000;
+async function makePowerRequest() {
+    try {
+        const response = await axios.get('https://api.ipify.org?format=json');
+        console.log(true);
+    } catch (error) {
+        console.error('Error making /power request:', error);
+    }
+}
+setInterval(makePowerRequest, interval)
 
 
 
