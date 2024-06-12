@@ -11,7 +11,7 @@ import shortenLink from "./routes/shortenLinkRoutes.js"
 connectToDB()
 
 let corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: '*',
     optionsSuccessStatus: 200,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     headers: ['Content-Type', 'Authorization'],
