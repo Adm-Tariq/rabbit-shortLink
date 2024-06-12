@@ -11,12 +11,12 @@ import shortenLink from "./routes/shortenLinkRoutes.js"
 connectToDB()
 
 let corsOptions = {
-    origin: '*',
+    origin: 'http://localhost:3000',
     optionsSuccessStatus: 200,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     headers: ['Content-Type', 'Authorization'],
     exposedHeaders: ['X-Powered-By'],
-    credentials: true,
+    credentials: true
 }
 
 const app = express()
