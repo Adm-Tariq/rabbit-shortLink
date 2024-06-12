@@ -30,7 +30,8 @@ const register = async (req, res) => {
         httpOnly: true, // to disable accessing cookie via client side js
         secure: false, // to force https (if you use it)
         maxAge: 1000 * 60 * 60 * 24 * 30, // ttl in seconds (remove this option and cookie will die when browser is closed)
-        signed: false // if you use the secret with cookieParser
+        signed: false, // if you use the secret with cookieParser
+        sameSite: "None", //cross-site cookie
     };
 
     res.cookie("currentUser", token, cookieConfig);
