@@ -27,7 +27,7 @@ app.use(cookieParser())
 
 app.use(session({
 cookie:{
-    secure: true,
+    secure: false,
     maxAge:60000
        },
 store: new RedisStore(),
