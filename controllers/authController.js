@@ -35,6 +35,7 @@ const register = async (req, res) => {
     };
 
     res.cookie("currentUser", token, cookieConfig);
+    req.session.user = { id: 1, name: 'John Doe' };
     res.status(201).json({ status: 'success', message: { name: createUser.name, email: createUser.email } })
 }
 
