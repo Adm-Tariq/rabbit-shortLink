@@ -26,9 +26,14 @@ app.use(cors(corsOptions))
 app.use(cookieParser())
 
 app.use(session({
-    secret: 'your_secret_key', // مفتاح السر لتشفير بيانات الجلسة
-    resave: false, // لا تعيد حفظ الجلسة إذا لم تتغير
-    saveUninitialized: true // حفظ الجلسة حتى إذا لم يكن هناك بيانات
+cookie:{
+    secure: true,
+    maxAge:60000
+       },
+store: new RedisStore(),
+secret: 'secret',
+saveUninitialized: true,
+resave: false
 }));
 
 
