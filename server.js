@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import express from "express"
 import cookieParser from "cookie-parser"
 import cors from "cors"
-import session from "express-session"
+
 
 /* ---------------------------------------- */
 import connectToDB from "./config/connectionDB.js";
@@ -24,17 +24,6 @@ const app = express()
 app.use(express.json())
 app.use(cors(corsOptions))
 app.use(cookieParser())
-app.set('trust proxy', 1);
-app.use(session({
-cookie:{
-    secure: false,
-    maxAge:60000
-       },
-store: new RedisStore(),
-secret: 'secret',
-saveUninitialized: true,
-resave: false
-}));
 
 
 const port = 5000
