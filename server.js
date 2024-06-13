@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import express from "express"
 import cookieParser from "cookie-parser"
 import cors from "cors"
+import session from "express-session"
 
 /* ---------------------------------------- */
 import connectToDB from "./config/connectionDB.js";
@@ -23,6 +24,14 @@ const app = express()
 app.use(express.json())
 app.use(cors(corsOptions))
 app.use(cookieParser())
+
+app.use(session({
+    secret: 'your_secret_key', // مفتاح السر لتشفير بيانات الجلسة
+    resave: false, // لا تعيد حفظ الجلسة إذا لم تتغير
+    saveUninitialized: true // حفظ الجلسة حتى إذا لم يكن هناك بيانات
+}));
+
+
 const port = 5000
 
 
